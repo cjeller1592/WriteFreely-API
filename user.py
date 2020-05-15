@@ -2,8 +2,6 @@ import requests
 import json
 from uri import URI, ME_URI
 
-import code
-
 class user(object):
     def __init__(self, domain):
         self.domain = domain
@@ -15,8 +13,6 @@ class user(object):
 
         r = requests.post('https://{}/auth/login'.format(self.domain), data=json.dumps(data),
                 headers={"Content-Type":"application/json"})
-#
-        code.interact(local=locals())
 
         if r.status_code != 200:
             return "Error in login(): %s" % r.json()["error_msg"]
